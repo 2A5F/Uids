@@ -13,8 +13,9 @@ interface UidChainFirst {
 }
 interface UidChain extends UidChainFirst {
     get: () => () => string;
-    getX62: () => () => string;
-    getXn: (r: number) => () => string;
+    getJoin: (c?: string) => () => string;
+    mapX62: () => UidChain;
+    mapXn: (r: number) => UidChain;
     map: (cb: (fn: () => number | string) => (() => number | string)) => UidChain;
 }
 export {};

@@ -209,19 +209,23 @@
 	        count: () => local_chain(getNewList(), ucount),
 	        add: nfn => local_chain(getNewList(), nfn),
 	        get: () => chain_get(getList()),
-	        getX62: () => map_chain(getNewList(), f => () => {
+	        getJoin: c => chain_getJoin(getList(), c),
+	        mapX62: () => map_chain(getNewList(), f => () => {
 	            const sn = f();
 	            return typeof sn === 'number' ? num2str_6(sn) : sn;
-	        }).get(),
-	        getXn: (r) => (map_chain(getNewList(), f => () => {
+	        }),
+	        mapXn: (r) => (map_chain(getNewList(), f => () => {
 	            const sn = f();
 	            return typeof sn === 'number' ? num2str_11(sn, r) : sn;
-	        })).get(),
+	        })),
 	        map: cb => map_chain(getNewList(), cb)
 	    };
 	}
 	function chain_get(list) {
 	    return () => list.map(fn => fn()).join('');
+	}
+	function chain_getJoin(list, c) {
+	    return () => list.map(fn => fn()).join(c);
 	}
 
 	exports.uid = uid;

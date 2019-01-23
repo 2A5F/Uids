@@ -61,19 +61,23 @@ function get_chain(getNewList: () => (() => string | number)[], getList: () => (
         count: () => local_chain(getNewList(), ucount),
         add: nfn => local_chain(getNewList(), nfn),
         get: () => chain_get(getList()),
-        getX62: () => map_chain(getNewList(), f => () => {
+        getJoin: c => chain_getJoin(getList(), c),
+        mapX62: () => map_chain(getNewList(), f => () => {
             const sn = f()
             return typeof sn === 'number' ? toString62(sn) : sn
-        }).get(),
-        getXn: (r: number) => (map_chain(getNewList(), f => () => {
+        }),
+        mapXn: (r: number) => (map_chain(getNewList(), f => () => {
             const sn = f()
             return typeof sn === 'number' ? toStringN(sn, r) : sn
-        })).get(),
+        })),
         map: cb => map_chain(getNewList(), cb)
     }
 }
 function chain_get(list: (() => number | string)[]): () => string {
     return () => list.map(fn => fn()).join('')
+}
+function chain_getJoin(list: (() => number | string)[], c?: string): () => string {
+    return () => list.map(fn => fn()).join(c)
 }
 
 interface UidChainFirst {
@@ -85,7 +89,8 @@ interface UidChainFirst {
 }
 interface UidChain extends UidChainFirst{
     get: () => () => string
-    getX62: () => () => string
-    getXn: (r: number) => () => string
+    getJoin: (c?: string) => () => string
+    mapX62: () => UidChain
+    mapXn: (r: number) => UidChain
     map: (cb: (fn: () => number | string) => (() => number | string)) => UidChain
 }
