@@ -1,0 +1,31 @@
+{
+  "name": "uids",
+  "version": "1.0.0",
+  "description": "Unique id",
+  "main": "uid.js",
+  "module": "uid.mjs",
+  "umd::main": "./dist/uid.noresolve.js",
+  "types": "./@type/uid.d.ts",
+  "typings": "./@type/uid.d.ts",
+  "scripts": {
+    "build": "tsc && rollup -c rollup.config.cjs.js && rollup -c && rollup -c rollup.config.min.js && rollup -c rollup.config.es.js  && rollup -c rollup.config.noresolve.js && rollup -c rollup.config.noresolve.min.js"
+  },
+  "author": "2A5F",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2A5F/uids.git"
+  },
+  "bugs": {
+    "url": "https://github.com/2A5F/uids/issues"
+  },
+  "homepage": "https://github.com/2A5F/uids#readme",
+  "license": "MIT",
+  "dependencies": {
+    "num2str": "^3.0.2"
+  },
+  "devDependencies": {
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-terser": "^4.0.2"
+  }
+}
