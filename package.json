@@ -1,6 +1,6 @@
 {
   "name": "uids",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unique id",
   "main": "uid.js",
   "module": "uid.mjs",
@@ -19,6 +19,15 @@
     "url": "https://github.com/2A5F/uids/issues"
   },
   "homepage": "https://github.com/2A5F/uids#readme",
+  "keywords": [
+    "unique-id",
+    "uid",
+    "uids",
+    "unique-identifier",
+    "id",
+    "identifier",
+    "unique"
+  ],
   "license": "MIT",
   "dependencies": {
     "num2str": "^3.0.2"
