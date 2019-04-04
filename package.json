@@ -1,6 +1,6 @@
 {
   "name": "uids",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Unique id",
   "main": "uid.js",
   "module": "uid.mjs",
@@ -30,11 +30,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "num2str": "^3.0.2"
+    "num2str": "^3.1.1"
   },
   "devDependencies": {
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-terser": "^4.0.2"
+    "rollup-plugin-commonjs": "^9.3.3",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-terser": "^4.0.4"
   }
 }
