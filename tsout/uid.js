@@ -7,7 +7,7 @@ export function uid() {
 }
 export function udate() {
     const now = new Date();
-    if (date == now) {
+    if (+date == +now) {
         count++;
     }
     else {

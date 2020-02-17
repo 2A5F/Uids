@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('num2str')) :
     typeof define === 'function' && define.amd ? define(['exports', 'num2str'], factory) :
-    (factory((global.uid = {}),global.num2str));
-}(this, (function (exports,num2str) { 'use strict';
+    (global = global || self, factory(global.uid = {}, global.num2str));
+}(this, (function (exports, num2str) { 'use strict';
 
     let date = new Date();
     let count = 0;
@@ -12,7 +12,7 @@
     }
     function udate() {
         const now = new Date();
-        if (date == now) {
+        if (+date == +now) {
             count++;
         }
         else {
@@ -79,12 +79,12 @@
         return () => list.map(fn => fn()).join(c);
     }
 
-    exports.uid = uid;
-    exports.udate = udate;
-    exports.udatecount = udatecount;
+    exports.chain = chain;
     exports.random = random;
     exports.ucount = ucount;
-    exports.chain = chain;
+    exports.udate = udate;
+    exports.udatecount = udatecount;
+    exports.uid = uid;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

@@ -12,7 +12,7 @@ function uid() {
 }
 function udate() {
     const now = new Date();
-    if (date == now) {
+    if (+date == +now) {
         count++;
     }
     else {
@@ -79,9 +79,9 @@ function chain_getJoin(list, c) {
     return () => list.map(fn => fn()).join(c);
 }
 
-exports.uid = uid;
-exports.udate = udate;
-exports.udatecount = udatecount;
+exports.chain = chain;
 exports.random = random;
 exports.ucount = ucount;
-exports.chain = chain;
+exports.udate = udate;
+exports.udatecount = udatecount;
+exports.uid = uid;
